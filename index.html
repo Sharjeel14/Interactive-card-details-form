@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- CSS File Link -->
+
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+
+</head>
+
+<body>
+
+  <section class="main">
+    <div class="purple">
+      <div class="card">
+        <div class="front-card">
+          <img src="images/bg-card-front.png" alt="front-card">
+          <span class="white-circle">1</span>
+          <span class="transparent-circle">1</span>
+          <div class="front-cad-content">
+            <h1 id="card-number">0000 0000 0000 0000</h1>
+            <div class="paragraph">
+              <p id="first">JANE Appleseed</p>
+              <!-- <p id="second">00<span>/</span>00</p> -->
+            </div>
+            <div id="second">
+              <p id="monthPara">00</p>
+              <span>/</span>
+              <p id="yearPara">00</p>
+            </div>
+          </div>
+        </div>
+        <div class="back-card">
+          <img src="images/bg-card-back.png" alt="back-card">
+          <p id="cvcPara">000</p>
+        </div>
+      </div>
+    </div>
+    <div class="formContent">
+      <form class="form" id="form">
+        <label for="card-holder-name">Cardholder Name</label>
+        <input type="text" id="card-holder-name" placeholder="e.g. Jane Appleseed"
+          onkeydown="return /[a-z]/i.test(event.key)">
+        <label for="card-holder-number">Card Number</label>
+        <input type="text" id="card-holder-number" placeholder="e.g. 1234 5678 9101 1213" minlength="16" maxlength="16">
+        <span id="error"></span>
+        <label for=" month" id="exp-label">exp. Date (MM/YY)</label>
+        <label for="cvc" id="cvc-label">CVC <br></label>
+        <input type="text" id="month" placeholder="MM" minlength="2" maxlength="2"
+          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <input type="text" id="year" placeholder="YY" minlength="2" maxlength="2"
+          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <span id="error1"></span>
+        <span id="monthYearSpan"></span>
+        <input type="text" id="cvc" placeholder="e.g. 123" minlength="3" maxlength="3"
+          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <span id="cvcSpan"></span>
+      </form>
+      <button type="submit" class="confirm" onclick="confirm()">
+        Confirm
+      </button>
+    </div>
+    <!-- <div class="afterConfirm">
+      <img src="images/icon-complete.svg" alt="complete">
+      <h1>Thank You!</h1>
+      <p>We've added your card details</p>
+      <button type="submit" class="confirm" onclick="contentShow()">
+        Confirm
+      </button>
+    </div> -->
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js">
+  </script>
+  <script src="script.js"></script>
+  <!-- Completed state start -->
+
+  <!-- Thank you!
+  We've added your card details
+  Continue -->
+</body>
+
+</html>
